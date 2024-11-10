@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Bookmark Extension</title>
+    <style>
+        body {
+  width: 300px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  position: relative; /* For absolute positioning of logout */
+}
+
+#logout {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: auto;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 12px;
+  background-image: linear-gradient(45deg, #ff4444, #cc0000);
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+#logout:hover {
+  background-image: linear-gradient(45deg, #ff4444, #ff4444);
+  box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+}
+
+h1,h2, p {
+  color: transparent;
+  background-image: linear-gradient(45deg, #ff69b4, #9932cc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin: 10px 0;
+}
+h2{
+    margin-bottom:20px;
+    
+}
+
+button:not(#logout) { /* Apply these styles to all buttons except logout */
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 6px;
+  background-image: linear-gradient(45deg, #ff69b4, #9932cc);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button:not(#logout):hover {
+  background-image: linear-gradient(45deg, #ff69b4, #ff69b4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+#error {
+  color: #ff4444;
+  display: none;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: rgba(255, 68, 68, 0.1);
+}
+
+#success {
+  color: #00c853;
+  display: none;
+  margin: 10px 0;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: rgba(0, 200, 83, 0.1);
+}
+      </style>
+
+  </head>
+  <body>
+    <h2>Bookmark Extension</h2>
+    <div id="error"></div>
+    <div id="success"></div>
+    <button id="createBookmark">Save Current Page</button>
+    <button id="login">Login</button>
+    <button id="logout">Logout</button>
+    <script src="popup.js"></script>
+  </body>
+</html>

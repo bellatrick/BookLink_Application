@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@keyframes gradient-move {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+
+.moving-gradient-btn {
+  @apply bg-gradient-to-r from-pink-500 to-purple-500; /* Apply the gradient */
+  @apply text-white font-bold py-2 px-4 rounded; /* Button styling */
+  @apply transition-all duration-500; /* Smooth transition */
+  background-size: 200% 200%;
+}
+
+/* On hover, animate the gradient */
+.moving-gradient-btn:hover {
+  animation: gradient-move 1s ease infinite alternate; /* Moves gradient */
+
+}
+
+/* First add these custom styles to your CSS */
+@keyframes borderGradientAnimation {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem; /* 8px */
+  padding: 2px; /* This is your border thickness */
+  background: linear-gradient(45deg, #ff69b4, #9932cc);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.gradient-border:hover {
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3),
+              0 0 40px rgba(153, 50, 204, 0.2);
+  transition: box-shadow 0.3s ease;
+}
